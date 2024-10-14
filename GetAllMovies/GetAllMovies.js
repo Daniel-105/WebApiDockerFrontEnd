@@ -13,14 +13,31 @@ button.addEventListener("click", (e) => {
     const movieDiv = document.createElement("div");
 
     response.forEach((element) => {
-      const movieSpan = document.createElement("div");
-      movieSpan.innerText = `Movie: ${element.name}`;
-      movieDiv.append(movieSpan);
+      const populatedDivs = createPopulatedMovieData(element);
+      const movie = populatedDivs.find((innerText) =>
+        innerText.innerText.includes("Movie")
+      );
+      const year = populatedDivs.find((innerText) =>
+        innerText.innerText.includes("Year")
+      );
 
-      const yearSpan = document.createElement("div");
-      yearSpan.innerText = `Year: ${element.year}`;
-      movieDiv.append(yearSpan);
+      movieDiv.append(movie);
+      movieDiv.append(year);
     });
     moviesContainer.append(movieDiv);
   });
 });
+
+function createPopulatedMovieData(element) {
+  let listData = [];
+
+  const movieSpan = document.createElement("div");
+  movieSpan.innerText = `Movie: ${element.name}`;
+  const yearSpan = document.createElement("div");
+  yearSpan.innerText = `Year: ${element.year}`;
+
+  listData.push(movieSpan);
+  listData.push(yearSpan);
+
+  return listData;
+}
