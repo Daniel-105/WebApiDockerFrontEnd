@@ -18,6 +18,7 @@ button.addEventListener("click", (e) => {
   e.preventDefault();
   const movieTitle = document.querySelector("#movieTitle").value;
   const movieYear = document.querySelector("#movieYear").value;
+
   console.log(movieYear);
   var settings = {
     url: "http://localhost:8080/Movie",
@@ -36,3 +37,5 @@ button.addEventListener("click", (e) => {
     console.log(response);
   });
 });
+
+// this was sent from local
