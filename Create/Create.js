@@ -37,5 +37,3 @@ button.addEventListener("click", (e) => {
     console.log(response);
   });
 });
-
-// this was sent from local
